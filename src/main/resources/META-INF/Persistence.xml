@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
+
+    <persistence-unit name="persistencecontext">
+
+        <properties>
+
+            <!-- 필수 속성 -->
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.user" value="jpadb"/>
+            <property name="javax.persistence.jdbc.password" value="jpadb"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/jpadb"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+
+            <!-- 옵션 -->
+            <!-- show_sql = 콘솔창에 쿼리가 나오는 옵션 -->
+            <property name="hibernate.show_sql" value="true" />
+            <!-- show_sql = 콘솔창에 쿼리가 이쁘게 나오는 옵션 -->
+            <property name="hibernate.format_sql" value="true" />
+            <property name="hibernate.use_sql_comments" value="true" />
+            <property name="hibernate.id.new_generator_mappings" value="true" />
+			
+			<!-- DDL -->
+			
+			<!-- [drop -> make] table이 없으면 만들고 쿼리를 실행해 이런 속성 -->
+            <!-- <property name="hibernate.hbm2ddl.auto" value="create" /> -->
+            <!-- [make -> drop] table이 있으면 날려버리고 새로 만들라는 속성 프로그램이 종료될 때 테이블 drop -->
+			<!-- <property name="hibernate.hbm2ddl.auto" value="create-drop" />-->
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+            
+        </properties>
+        
+    </persistence-unit>
+
+</persistence>
